@@ -38,6 +38,9 @@ function ESX.IsPlayerLoaded()
 end
 
 function ESX.GetPlayerData()
+    if Config.QSInventory then
+        ESX.PlayerData.inventory = exports['qs-inventory']:getUserInventory()
+    end
     return ESX.PlayerData
 end
 

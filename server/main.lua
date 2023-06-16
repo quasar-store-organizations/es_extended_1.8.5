@@ -170,7 +170,7 @@ function loadESXPlayer(identifier, playerId, isNew)
   end
 
   -- Inventory
-  if not Config.OxInventory then
+  if not Config.OxInventory and not Config.QSInventory then
     if result.inventory and result.inventory ~= '' then
       local inventory = json.decode(result.inventory)
 
@@ -220,7 +220,7 @@ function loadESXPlayer(identifier, playerId, isNew)
   end
 
   -- Loadout
-  if not Config.OxInventory then
+  if not Config.OxInventory and not Config.QSInventory then
     if result.loadout and result.loadout ~= '' then
       local loadout = json.decode(result.loadout)
 
@@ -369,7 +369,7 @@ AddEventHandler('esx:updateCoords', function()
   end
 end)
 
-if not Config.OxInventory then
+if not Config.OxInventory and not Config.QSInventory then
   RegisterNetEvent('esx:updateWeaponAmmo')
   AddEventHandler('esx:updateWeaponAmmo', function(weaponName, ammoCount)
     local xPlayer = ESX.GetPlayerFromId(source)
